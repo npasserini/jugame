@@ -11,6 +11,8 @@ program PepitaGame {
   // game.boardGround("fondo2.jpg")
   game.addVisual(apple)
 	game.addVisualCharacter(snake)
+
+	game.onCollideDo(apple, { obj => obj.eat(apple) })
 	game.showAttributes(snake) //Debug
 
 	game.start()
