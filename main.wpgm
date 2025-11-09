@@ -1,0 +1,17 @@
+import wollok.game.*
+
+import config.*
+import snake.*
+
+program PepitaGame {
+	game.height(TAMANIO_Y)
+	game.width(TAMANIO_X)
+
+	// add assets in asset folder, for example, for the background
+  // game.boardGround("fondo2.jpg")
+  game.addVisual(apple)
+	game.addVisualCharacter(snake)
+	game.showAttributes(snake) //Debug
+
+	game.start()
+}
