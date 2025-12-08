@@ -12,8 +12,9 @@ program PepitaGame {
   game.addVisual(apple)
 	game.addVisualCharacter(snake)
 
+	game.onTick(1000, "avanzar", { => snake.avanzar() })
 	game.onCollideDo(apple, { obj => obj.eat(apple) })
 	game.showAttributes(snake) //Debug
 
-	game.start()
+	game.start() 
 }

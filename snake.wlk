@@ -7,6 +7,11 @@ object snake {
   method eat(apple) {
     apple.reposition()
   }
+
+  method avanzar() {
+    position = position.right(1)
+    
+  }
 }
 
 object apple {
