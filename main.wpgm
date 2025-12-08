@@ -2,13 +2,16 @@ import wollok.game.*
 
 import config.*
 import snake.*
+import directions.*
 
 program PepitaGame {
 	game.height(TAMANIO_Y)
 	game.width(TAMANIO_X)
 
     game.addVisual(apple)
-	game.addVisualCharacter(snake)
+	game.addVisual(snake)
+
+	keyboard.up().onPressDo { => snake.direction(up) }
 
 	game.onTick(1000, "move", { => snake.move() })
 	game.onCollideDo(apple, { obj => obj.eat(apple) })

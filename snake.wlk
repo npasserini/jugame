@@ -1,7 +1,10 @@
 // import wollok.game.*
 import config.*
+import directions.*
+
 object snake {
   var property position = game.at((TAMANIO_X-1)/2, (TAMANIO_Y-1)/2)
+  var property direction = right
 
   method image() = "head.png"
   method eat(apple) {
@@ -9,10 +12,11 @@ object snake {
   }
 
   method move() {
-    position = position.right(1)
+    position = direction.next(position)
     
   }
 }
+
 
 object apple {
   var property position = util.randomPosition()
