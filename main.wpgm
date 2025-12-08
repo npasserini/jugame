@@ -7,12 +7,10 @@ program PepitaGame {
 	game.height(TAMANIO_Y)
 	game.width(TAMANIO_X)
 
-	// add assets in asset folder, for example, for the background
-  // game.boardGround("fondo2.jpg")
-  game.addVisual(apple)
+    game.addVisual(apple)
 	game.addVisualCharacter(snake)
 
-	game.onTick(1000, "avanzar", { => snake.avanzar() })
+	game.onTick(1000, "move", { => snake.move() })
 	game.onCollideDo(apple, { obj => obj.eat(apple) })
 	game.showAttributes(snake) //Debug
 

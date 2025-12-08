@@ -8,7 +8,7 @@ object snake {
     apple.reposition()
   }
 
-  method avanzar() {
+  method move() {
     position = position.right(1)
     
   }
