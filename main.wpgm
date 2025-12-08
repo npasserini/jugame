@@ -12,6 +12,10 @@ program PepitaGame {
 	game.addVisual(snake)
 
 	keyboard.up().onPressDo { => snake.direction(up) }
+	keyboard.right().onPressDo { => snake.direction(right) }
+	keyboard.down().onPressDo { => snake.direction(down) }
+	keyboard.left().onPressDo { => snake.direction(left) }
+
 
 	game.onTick(1000, "move", { => snake.move() })
 	game.onCollideDo(apple, { obj => obj.eat(apple) })
