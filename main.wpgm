@@ -3,23 +3,39 @@ import wollok.game.*
 import config.*
 import snake.*
 import directions.*
+import walls.*
 
 program PepitaGame {
-	game.height(TAMANIO_Y)
-	game.width(TAMANIO_X)
+  game.height(TAMANIO_Y)
+  game.width(TAMANIO_X)
 
-    game.addVisual(apple)
-	game.addVisual(snake)
+  (1..TAMANIO_Y-2).forEach { y => 
+	  var wall = new Wall(position = game.at(0, y))
+  	game.addVisual(wall)
 
-	keyboard.up().onPressDo { => snake.direction(up) }
-	keyboard.right().onPressDo { => snake.direction(right) }
-	keyboard.down().onPressDo { => snake.direction(down) }
-	keyboard.left().onPressDo { => snake.direction(left) }
+	  wall = new Wall(position = game.at(TAMANIO_X-1, y))
+  	game.addVisual(wall)
+  }
 
+  (0..TAMANIO_X-1).forEach { x => 
+	  var wall = new Wall(position = game.at(x, 0))
+  	game.addVisual(wall)
+  
+	  wall = new Wall(position = game.at(x, TAMANIO_Y-1))
+  	game.addVisual(wall)
+  }
 
-	game.onTick(1000, "move", { => snake.move() })
-	game.onCollideDo(apple, { obj => obj.eat(apple) })
-	game.showAttributes(snake) //Debug
+  game.addVisual(apple)
+  game.addVisual(snake)
 
-	game.start() 
+  keyboard.up().onPressDo { => snake.direction(up) }
+  keyboard.right().onPressDo { => snake.direction(right) }
+  keyboard.down().onPressDo { => snake.direction(down) }
+  keyboard.left().onPressDo { => snake.direction(left) }
+
+  game.onTick(300, "move", { => snake.move() })
+  game.onCollideDo(snake, { obj => obj.act() })
+  game.showAttributes(snake) //Debug
+
+  game.start() 
 }
