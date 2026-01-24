@@ -34,8 +34,8 @@ object apple {
 }
 
 object util {
-  method randomX() = 0.randomUpTo(TAMANIO_X).floor()
-  method randomY() = 0.randomUpTo(TAMANIO_Y).floor()
+  method randomX() = 1.randomUpTo(TAMANIO_X-1).floor()
+  method randomY() = 1.randomUpTo(TAMANIO_Y-1).floor()
   method randomPosition() = game.at(self.randomX(), self.randomY())
 }
 
