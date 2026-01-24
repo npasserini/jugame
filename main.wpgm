@@ -5,7 +5,7 @@ import snake.*
 import directions.*
 import walls.*
 
-program PepitaGame {
+program JuGame {
   game.height(TAMANIO_Y)
   game.width(TAMANIO_X)
 
