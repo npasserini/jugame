@@ -28,7 +28,7 @@ program JuGame {
 
   game.addVisual(apple)
   game.addVisual(snake)
-  game.addVisual(body)
+
 
   keyboard.up().onPressDo { => snake.direction(up) }
   keyboard.right().onPressDo { => snake.direction(right) }

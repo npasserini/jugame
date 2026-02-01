@@ -12,6 +12,8 @@ object snake {
 
   method eat(apple) {
     apple.reposition()
+    game.addVisual(body)
+    body.position(self.position())
   }
 
   method move() {
