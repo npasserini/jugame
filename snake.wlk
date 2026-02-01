@@ -1,6 +1,7 @@
 // import wollok.game.*
 import config.*
 import directions.*
+import objects.*
 
 object snake {
   var property position = game.at((TAMANIO_X-1)/2, (TAMANIO_Y-1)/2)
@@ -27,3 +28,7 @@ object snake {
   }
 }
 
+object body {
+  var property position = util.randomPosition()
+  method image() = "snake.png"
+}
