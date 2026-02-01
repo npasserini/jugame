@@ -7,12 +7,14 @@ object snake {
   var property position = game.at((TAMANIO_X-1)/2, (TAMANIO_Y-1)/2)
   var property direction = right
   var property isAlive = true
+  const bodys = []
 
   method image() = "head.png"
 
   method eat(apple) {
     apple.reposition()
     const body = new Body(position = self.position())
+    bodys.add(body)
     game.addVisual(body)
   }
 
@@ -27,6 +29,8 @@ object snake {
   method start() {
     position = game.at((TAMANIO_X-1)/2, (TAMANIO_Y-1)/2)
     isAlive = true
+    bodys.forEach { body => game.removeVisual(body) }
+    bodys.clear()
   }
 }
 
