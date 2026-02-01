@@ -19,7 +19,15 @@ object snake {
   }
 
   method move() {
-    if (isAlive) position = direction.next(position)  
+    if (isAlive) {
+      var last = position
+      position = direction.next(position)
+      bodys.forEach { body =>
+        const aux = body.position()
+        body.position(last)
+        last = aux
+      }
+    }
   }
 
   method stop() {
