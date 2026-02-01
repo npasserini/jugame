@@ -1,6 +1,7 @@
-import snake.*
+import objects.*
 import game.*
 import config.*
+import snake.*
 
 class Wall {
   const property position
