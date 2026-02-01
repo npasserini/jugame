@@ -12,8 +12,8 @@ object snake {
 
   method eat(apple) {
     apple.reposition()
+    const body = new Body(position = self.position())
     game.addVisual(body)
-    body.position(self.position())
   }
 
   method move() {
@@ -30,7 +30,7 @@ object snake {
   }
 }
 
-object body {
+class Body {
   var property position = util.randomPosition()
   method image() = "snake.png"
 }
